@@ -1,0 +1,8 @@
+git_private_key:
+pivnet_token:
+aws_access_key_id:
+aws_secret_access_key:
+mysql_monitor_recipient_email:
+statefiles_bucket:
+route53_zone_id:
+route53_domain:
