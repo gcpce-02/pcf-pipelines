@@ -48,11 +48,13 @@ sed -i \
   -e "s/{{pcf_ert_domain}}/${pcf_ert_domain}/g" \
   -e "s/{{terraform_prefix}}/${terraform_prefix}/g" \
   -e "s/{{mysql_monitor_recipient_email}}/${mysql_monitor_recipient_email}/g" \
-  -e "s/{{locket_username}}/${db_locket_username}/g" \
-  -e "s/{{locket_password}}/${db_locket_password}/g" \
-  -e "s/{{silk_username}}/${db_silk_username}/g" \
-  -e "s/{{silk_password}}/${db_silk_password}/g" \
+  -e "s/{{db_locket_username}}/${db_locket_username}/g" \
+  -e "s/{{db_locket_password}}/${db_locket_password}/g" \
+  -e "s/{{db_silk_username}}/${db_silk_username}/g" \
+  -e "s/{{db_silk_password}}/${db_silk_password}/g" \
   ${json_file}
+
+exit 1
 
 if [[ ${MYSQL_BACKUPS} == "scp" ]]; then
   cat > mysql_filter <<-'EOF'
