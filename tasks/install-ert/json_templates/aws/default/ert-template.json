@@ -217,7 +217,7 @@
       ".properties.uaa_database": {
         "value": "external"
       },
-      ".properties.uaa_database.external_host": {
+      ".properties.uaa_database.external.host": {
         "value": "{{db_host}}"
       },
       ".properties.uaa_database.external.port": {
