@@ -54,8 +54,6 @@ sed -i \
   -e "s/{{db_silk_password}}/${db_silk_password}/g" \
   ${json_file}
 
-exit 1
-
 if [[ ${MYSQL_BACKUPS} == "scp" ]]; then
   cat > mysql_filter <<-'EOF'
     .properties.properties.".properties.mysql_backups" = {"value": $mysql_backups} |
