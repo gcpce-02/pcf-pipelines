@@ -40,7 +40,7 @@ will_disable=$(
         if ($to_disable | contains($errand)) then
           . + [$errand]
         else
-          .
+          []
         end
       ) | join("\n")'
 )
