@@ -100,5 +100,3 @@ for job in ${opsman_avail_jobs}; do
  fn_om_linux_curl "PUT" "/api/v0/staged/products/${guid_cf}/jobs/${json_job_guid}/resource_config" "${json_job_config}"
 
 done
-
-exit 1
