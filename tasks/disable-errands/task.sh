@@ -45,6 +45,11 @@ will_disable=$(
       ) | join("\n")'
 )
 
+if [ -z "$will_disable" ]; then
+  echo Nothing to do.
+  exit 0
+fi
+
 while read errand; do
   echo -n Disabling $errand...
   om-linux \
