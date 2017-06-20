@@ -213,6 +213,23 @@
           "cert_pem": "",
           "private_key_pem": ""
         }
+      },
+      ".properties.uaa_database": {
+        "value": "external"
+      },
+      ".properties.uaa_database.external_host": {
+        "value": "{{db_host}}"
+      },
+      ".properties.uaa_database.external.port": {
+        "value": "3306"
+      },
+      ".properties.uaa_database.external.uaa_username": {
+        "value": "{{db_uaa_username}}"
+      },
+      ".properties.uaa_database.external.uaa_password": {
+        "value": {
+          "secret": "{{db_uaa_password}}"
+        }
       }
     }
   },
