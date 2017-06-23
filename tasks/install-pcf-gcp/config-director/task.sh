@@ -4,12 +4,12 @@ set -e
 cat > opsman.json <<EOF
 [{
   "director_configuration": {
-    "director_configuration[ntp_servers_string]": "0.pool.ntp.org",
+    "director_configuration[ntp_servers_string]": "time1.google.com,time2.google.com,time3.google.com",
     "director_configuration[metrics_ip]": "",
     "director_configuration[resurrector_enabled]": "1",
     "director_configuration[post_deploy_enabled]": "0",
     "director_configuration[bosh_recreate_on_next_deploy]": "0",
-    "director_configuration[retry_bosh_deploys]": "1",
+    "director_configuration[retry_bosh_deploys]": "0",
     "director_configuration[hm_pager_duty_options][enabled]": "0",
     "director_configuration[hm_emailer_options][enabled]": "0",
     "director_configuration[blobstore_type]": "local",
@@ -47,7 +47,7 @@ cat > opsman.json <<EOF
     "network_collection[networks_attributes][2][subnets][0][iaas_identifier]": "${gcp_resource_prefix}-virt-net/${gcp_resource_prefix}-subnet-services-1-${gcp_region}/${gcp_region}",
     "network_collection[networks_attributes][2][subnets][0][cidr]": "192.168.20.0/22",
     "network_collection[networks_attributes][2][subnets][0][reserved_ip_ranges]": "192.168.20.1-192.168.20.9",
-    "network_collection[networks_attributes][2][subnets][0][dns]": "192.168.20.1,8.8.8.8",
+    "network_collection[networks_attributes][2][subnets][0][dns]": "8.8.8.8",
     "network_collection[networks_attributes][2][subnets][0][gateway]": "192.168.20.1",
     "network_collection[networks_attributes][2][subnets][0][availability_zone_references][]": ["${gcp_zone_1}","${gcp_zone_2}","${gcp_zone_3}"],
     "pipeline_extension": "fn_form_gen_networks"
