@@ -31,7 +31,7 @@ cat > opsman.json <<EOF
     "network_collection[networks_attributes][0][subnets][0][reserved_ip_ranges]": "192.168.101.1-192.168.101.9",
     "network_collection[networks_attributes][0][subnets][0][dns]": "192.168.101.1,8.8.8.8",
     "network_collection[networks_attributes][0][subnets][0][gateway]": "192.168.101.1",
-    "network_collection[networks_attributes][0][subnets][0][availability_zone_references]": ["${gcp_zone_1}","${gcp_zone_2}","${gcp_zone_3}"],
+    "network_collection[networks_attributes][0][subnets][0][availability_zone_references][]": ["${gcp_zone_1}","${gcp_zone_2}","${gcp_zone_3}"],
     "network_collection[networks_attributes][1][guid]": "1",
     "network_collection[networks_attributes][1][name]": "ert",
     "network_collection[networks_attributes][1][service_network]": "0",
@@ -40,7 +40,7 @@ cat > opsman.json <<EOF
     "network_collection[networks_attributes][1][subnets][0][reserved_ip_ranges]": "192.168.16.1-192.168.16.9",
     "network_collection[networks_attributes][1][subnets][0][dns]": "192.168.16.1,8.8.8.8",
     "network_collection[networks_attributes][1][subnets][0][gateway]": "192.168.16.1",
-    "network_collection[networks_attributes][1][subnets][0][availability_zone_references]": ["${gcp_zone_1}","${gcp_zone_2}","${gcp_zone_3}"],
+    "network_collection[networks_attributes][1][subnets][0][availability_zone_references][]": ["${gcp_zone_1}","${gcp_zone_2}","${gcp_zone_3}"],
     "network_collection[networks_attributes][2][guid]": "2",
     "network_collection[networks_attributes][2][name]": "services-1",
     "network_collection[networks_attributes][2][service_network]": "1",
@@ -49,7 +49,7 @@ cat > opsman.json <<EOF
     "network_collection[networks_attributes][2][subnets][0][reserved_ip_ranges]": "192.168.20.1-192.168.20.9",
     "network_collection[networks_attributes][2][subnets][0][dns]": "8.8.8.8",
     "network_collection[networks_attributes][2][subnets][0][gateway]": "192.168.20.1",
-    "network_collection[networks_attributes][2][subnets][0][availability_zone_references]": ["${gcp_zone_1}","${gcp_zone_2}","${gcp_zone_3}"],
+    "network_collection[networks_attributes][2][subnets][0][availability_zone_references][]": ["${gcp_zone_1}","${gcp_zone_2}","${gcp_zone_3}"],
     "pipeline_extension": "fn_form_gen_networks"
   },
   "az_and_network_assignment": {
