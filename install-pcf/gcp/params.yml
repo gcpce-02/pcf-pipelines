@@ -43,6 +43,9 @@ tile_upload_timeout: 1800 # Time to allow for a tile upload request to live
 # Elastic Runtime Domain
 pcf_ert_domain: CHANGEME
 
+# OpsManager uri: the FQDN, like https://opsman.pcf.example.com (the suffix should be same as pcf_ert_domain)
+opsman_uri: CHANGEME
+
 # Elastic Runtime SQL DB credentials to set
 ert_sql_db_username: CHANGEME
 ert_sql_db_password: CHANGEME
