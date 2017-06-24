@@ -229,6 +229,8 @@ jobs:
       terraform_template: default
       pcf_ert_ssl_cert: {{pcf_ert_ssl_cert}}
       pcf_ert_ssl_key: {{pcf_ert_ssl_key}}
+      saml_cert_pem: {{saml_cert_pem}}
+      saml_key_pem: {{saml_key_pem}}
       pcf_az_1: {{gcp_zone_1}}
       pcf_az_2: {{gcp_zone_2}}
       pcf_az_3: {{gcp_zone_3}}

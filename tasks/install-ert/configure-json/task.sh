@@ -115,8 +115,8 @@ EOF
 jq \
   --arg cert_pem "$pcf_ert_ssl_cert" \
   --arg private_key_pem "$pcf_ert_ssl_key" \
-  --arg saml_cert_pem "$pcf_ert_ssl_cert" \
-  --arg saml_key_pem "$pcf_ert_ssl_key" \
+  --arg saml_cert_pem "$saml_cert_pem" \
+  --arg saml_key_pem "$saml_key_pem" \
   --from-file cert_filter \
   $json_file > config.json
 mv config.json $json_file
