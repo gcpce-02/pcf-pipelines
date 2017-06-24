@@ -23,9 +23,9 @@ if [[ ${pcf_ert_ssl_cert} == "generate" ]]; then
   export pcf_ert_ssl_key=$(cat sys.${pcf_ert_domain}.key)
 fi
 
-echo "=============================================================================================="
-echo "Generating saml Certs for opsman.${pcf_ert_domain} ..."
-echo "=============================================================================================="
+#echo "=============================================================================================="
+#echo "Generating saml Certs for opsman.${pcf_ert_domain} ..."
+#echo "=============================================================================================="
 
 system_domain=sys.${pcf_ert_domain}
 ops_mgr_host="https://opsman.$pcf_ert_domain"
@@ -33,15 +33,15 @@ domains=$(cat <<-EOF
   {"domains": ["*.${system_domain}", "*.login.${system_domain}", "*.uaa.${system_domain}"] }
 EOF
 )
-saml_cert_response=`om-linux -t $ops_mgr_host -u $pcf_opsman_admin -p $pcf_opsman_admin_passwd -k curl -p "/api/v0/certificates/generate" -x POST -d "$domains"`
+#saml_cert_response=`om-linux -t $ops_mgr_host -u $pcf_opsman_admin -p $pcf_opsman_admin_passwd -k curl -p "/api/v0/certificates/generate" -x POST -d "$domains"`
 #saml_cert_pem=$(echo $saml_cert_response | jq --raw-output '.certificate')
 #saml_key_pem=$(echo $saml_cert_response | jq --raw-output '.key')
-saml_cert_pem=$(echo ${pcf_ert_ssl_cert} | jq --raw-output '.certificate')
-saml_key_pem=$(echo ${pcf_ert_ssl_key} | jq --raw-output '.key')
+#saml_cert_pem=$(echo ${pcf_ert_ssl_cert} | jq --raw-output '.certificate')
+#saml_key_pem=$(echo ${pcf_ert_ssl_key} | jq --raw-output '.key')
 
-echo "=============================================================================================="
-echo "saml key: " $saml_key_pem
-echo "=============================================================================================="
+#echo "=============================================================================================="
+#echo "saml key: " $pcf_ert_ssl_key
+#echo "=============================================================================================="
 
 sed -i \
   -e "s/{{pcf_az_1}}/${pcf_az_1}/g" \
@@ -115,8 +115,8 @@ EOF
 jq \
   --arg cert_pem "$pcf_ert_ssl_cert" \
   --arg private_key_pem "$pcf_ert_ssl_key" \
-  --arg saml_cert_pem "$saml_cert_pem" \
-  --arg saml_key_pem "$saml_key_pem" \
+  --arg saml_cert_pem "$pcf_ert_ssl_cert" \
+  --arg saml_key_pem "$pcf_ert_ssl_key" \
   --from-file cert_filter \
   $json_file > config.json
 mv config.json $json_file
