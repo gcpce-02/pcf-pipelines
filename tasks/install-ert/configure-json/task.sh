@@ -157,3 +157,8 @@ if [[ -e pcf-pipelines/tasks/install-ert/scripts/iaas-specific-config/${pcf_iaas
   echo "Executing ${pcf_iaas} IaaS specific config ..."
   ./pcf-pipelines/tasks/install-ert/scripts/iaas-specific-config/${pcf_iaas}/run.sh
 fi
+
+echo "=============================================================================================="
+echo "final json is: "
+cat $json_file
+echo "=============================================================================================="
