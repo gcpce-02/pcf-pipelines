@@ -23,6 +23,10 @@ if [[ ${pcf_ert_ssl_cert} == "generate" ]]; then
   export pcf_ert_ssl_key=$(cat sys.${pcf_ert_domain}.key)
 fi
 
+echo "=============================================================================================="
+echo "Generating saml Certs for opsman.${pcf_ert_domain} ..."
+echo "=============================================================================================="
+
 system_domain=sys.${pcf_ert_domain}
 ops_mgr_host="https://opsman.$pcf_ert_domain"
 domains=$(cat <<-EOF
@@ -32,6 +36,10 @@ EOF
 saml_cert_response=`om-linux -t $ops_mgr_host -u $pcf_opsman_admin -p $pcf_opsman_admin_passwd -k curl -p "/api/v0/certificates/generate" -x POST -d "$domains"`
 saml_cert_pem=$(echo $saml_cert_response | jq --raw-output '.certificate')
 saml_key_pem=$(echo $saml_cert_response | jq --raw-output '.key')
+
+echo "=============================================================================================="
+echo "saml key: " $saml_key_pem
+echo "=============================================================================================="
 
 sed -i \
   -e "s/{{pcf_az_1}}/${pcf_az_1}/g" \
