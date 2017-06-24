@@ -34,8 +34,10 @@ domains=$(cat <<-EOF
 EOF
 )
 saml_cert_response=`om-linux -t $ops_mgr_host -u $pcf_opsman_admin -p $pcf_opsman_admin_passwd -k curl -p "/api/v0/certificates/generate" -x POST -d "$domains"`
-saml_cert_pem=$(echo $saml_cert_response | jq --raw-output '.certificate')
-saml_key_pem=$(echo $saml_cert_response | jq --raw-output '.key')
+#saml_cert_pem=$(echo $saml_cert_response | jq --raw-output '.certificate')
+#saml_key_pem=$(echo $saml_cert_response | jq --raw-output '.key')
+saml_cert_pem=$(echo ${pcf_ert_ssl_cert} | jq --raw-output '.certificate')
+saml_key_pem=$(echo ${pcf_ert_ssl_key} | jq --raw-output '.key')
 
 echo "=============================================================================================="
 echo "saml key: " $saml_key_pem
